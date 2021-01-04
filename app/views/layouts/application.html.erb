@@ -11,6 +11,25 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <h1>Ruby on Rails スケジュール管理アプリ</h1>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
+    <footer>
+      <h1>現在の日時:
+        <%= require "date"
+          thisDay = Date.today
+          nowTime = DateTime.now
+          p "#{thisDay.year}年#{thisDay.month}月#{thisDay.day}日     
+          #{nowTime.hour}時#{nowTime.minute}分"
+        %>
+      </h1>
+      <h1>
+        スケジュール合計:
+        <%= p User.count%>件
+      </h1>
+    </footer>
   </body>
 </html>
